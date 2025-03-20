@@ -3,8 +3,8 @@ import os
 from dotenv import load_dotenv
 
 # Configurações ElevenLabs
-API_KEY_ELEVENLABS = "sk_048a9bc998e7e01a7b39625b967110e23d22645e100f9ceb"
-VOICE_ID_ELEVENLABS = "21m00Tcm4TlvDq8ikWAM"
+API_KEY_ELEVENLABS = ""
+VOICE_ID_ELEVENLABS = ""
 
 # Configurações gerais
 PASTA_IMAGENS = "imagens_geradas"
