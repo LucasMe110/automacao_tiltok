@@ -10,4 +10,4 @@ VOICE_ID_ELEVENLABS = ""
 PASTA_IMAGENS = "imagens_geradas"
 
 def criar_cliente():
-    return OpenAI(api_key="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")
+    return OpenAI(api_key="")
