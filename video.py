@@ -6,12 +6,22 @@ def criar_video(pasta_imagens='imagens_geradas', audio_path='narracao.mp3', vide
         # Carregar o áudio e obter duração
         audio = AudioFileClip(audio_path)
         duracao_total = audio.duration
-        tempo_por_imagem = duracao_total / 10
+        
+        # Listar e ordenar as imagens geradas
+        imagens = sorted([
+            os.path.join(pasta_imagens, img) 
+            for img in os.listdir(pasta_imagens) 
+            if img.endswith('.png')
+        ], key=lambda x: int(x.split('_')[-1].split('.')[0]))
+        
+        if not imagens:
+            raise Exception("Nenhuma imagem encontrada para criar o vídeo")
+            
+        tempo_por_imagem = duracao_total / len(imagens)
 
         # Criar lista de clips das imagens
         clips = []
-        for i in range(1, 11):
-            img_path = os.path.join(pasta_imagens, f'img_{i}.png')
+        for img_path in imagens:
             clip = ImageClip(img_path).set_duration(tempo_por_imagem)
             clip = clip.crossfadein(0.5).crossfadeout(0.5)
             clips.append(clip)

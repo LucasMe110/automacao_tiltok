@@ -2,7 +2,7 @@ from geradores import gerar_roteiro_narrativo, gerar_prompts_imagens
 from gerar_imagens import gerar_e_salvar_imagens
 from gerar_audio import texto_para_fala
 from config import PASTA_IMAGENS
-from video import criar_video  # Importação adicionada
+from video import criar_video
 
 def fluxo_principal():
     livro = input("📖 Título do livro: ").strip()
@@ -24,12 +24,10 @@ def fluxo_principal():
         imagens = gerar_e_salvar_imagens(prompts)
         print(f"\n✨ {len(imagens)} imagens salvas em '{PASTA_IMAGENS}'")
         
-        # Nova seção para criação do vídeo
-        print("\n🎥 Criando vídeo a partir das imagens e áudio...")
-        if criar_video(pasta_imagens=PASTA_IMAGENS):
-            print("✅ Vídeo finalizado com sucesso!")
-        else:
-            print("❌ Houve um problema na criação do vídeo")
+        print("\n🎥 Criando vídeo base...")
+        criar_video(pasta_imagens=PASTA_IMAGENS)
+        print("✅ Vídeo base criado com sucesso!")
+
         
     except Exception as e:
         print(f"\n🔥 Erro: {e}")

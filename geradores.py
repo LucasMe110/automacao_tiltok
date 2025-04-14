@@ -33,7 +33,7 @@ def gerar_roteiro_narrativo(titulo_livro, autor_livro):
             {"role": "user", "content": prompt}
         ],
         temperature=0.85,
-        max_tokens=1200,
+        max_tokens=1300,
         top_p=0.95
     )
 
@@ -52,18 +52,19 @@ def gerar_prompts_imagens(roteiro):
 
     1. **Formato por prompt:**
        - [PT-BR]: Descrição detalhada em português.
+       - **Cada prompt DEVE conter explicitamente a frase: "com a arte do Studio Ghibli".**
 
     2. **Características obrigatórias:**
-       - Estilo: Cinematográfico e artístico, com iluminação bem trabalhada.
-       - Paleta de cores: Estética refinada, explorando tons contrastantes de forma harmônica.
-       - Elementos: Simbologia conceitual e filosófica inspirada na narrativa.
-       - Enquadramento: Uso de composições dinâmicas para impacto visual.
+       - Estilo: Ilustração suave e detalhada, inspirada no Studio Ghibli.
+       - Paleta de cores: Tons pastéis e vibrantes, com iluminação natural e atmosferas aconchegantes.
+       - Elementos: Paisagens exuberantes, cenários fantásticos, arquitetura charmosa e personagens expressivos.
+       - Enquadramento: Composições cinematográficas que evocam um senso de aventura e nostalgia.
 
     3. **Requisitos de conteúdo:**
        - Representar 1 cena-chave por prompt.
-       - Incluir elementos metafóricos do texto.
-       - Usar analogias visuais dos conceitos do livro.
-       - Variar entre cenas figurativas e abstratas.
+       - Capturar a magia do cotidiano e a beleza dos detalhes.
+       - Usar metáforas visuais e atmosferas sonhadoras para transmitir a essência do roteiro.
+       - Variar entre paisagens naturais, cidades encantadas e momentos introspectivos dos personagens.
 
     4. **Regras de moderação:**
        - Evitar qualquer conteúdo que infrinja políticas de IA.
@@ -71,8 +72,9 @@ def gerar_prompts_imagens(roteiro):
        - Garantir que todas as descrições sigam diretrizes éticas.
 
     5. **Terminologia técnica:**
-       - Incluir termos como "cinematic lighting", "detailed textures", "high-resolution".
-       - Especificar "8K render", "artistic composition", "digital painting".
+       - Incluir termos como "Studio Ghibli style", "soft lighting", "hand-painted textures".
+       - Especificar "8K render", "whimsical atmosphere", "dreamlike scenery", "fantasy-inspired composition".
+       - **Garantir que todos os prompts contenham a frase: "com a arte do Studio Ghibli".**
     """
 
     response = client.chat.completions.create(
@@ -82,7 +84,7 @@ def gerar_prompts_imagens(roteiro):
             {"role": "user", "content": prompt_imagens}
         ],
         temperature=0.8,
-        max_tokens=2000,
+        max_tokens=1500,
         top_p=0.9
     )
 
